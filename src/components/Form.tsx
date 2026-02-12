@@ -109,7 +109,7 @@ function Form() {
   }, [selectedPhoto]);
 
   const onCropComplete = useCallback(
-    (croppedArea: Area, croppedAreaPixels: Area) => {
+    (_croppedArea: Area, croppedAreaPixels: Area) => {
       setCroppedAreaPixels(croppedAreaPixels);
     },
     [],
@@ -122,7 +122,10 @@ function Form() {
         dispatch({ type: "SET_PHOTO", payload: croppedImage });
         setCroppedResult(croppedImage);
       } catch (e) {
-        console.error(e);
+        handleClickOpenAlert({
+          title: "Error",
+          message: "Failed to crop image, Please try again",
+        });
       } finally {
         dispatch({ type: "TURN_OFF_EDIT_PHOTO" });
       }
@@ -166,8 +169,10 @@ function Form() {
 
       dispatch({ type: "HAS_REMOVED_PHOTO_BACKGROUND" });
     } catch (e) {
-      console.error("AI Error:", e);
-      alert("Failed to remove background.");
+      handleClickOpenAlert({
+        title: "Background Remover Failed",
+        message: "Failed to remove the background, Please try again",
+      });
     } finally {
       dispatch({ type: "FINISHED_REMOVING_BACKGROUND" });
     }
@@ -694,7 +699,7 @@ function Form() {
                 max={3}
                 step={0.1}
                 aria-labelledby="Zoom"
-                onChange={(e, val) => setZoom(roundZoom(Number(val)))}
+                onChange={(_e, val) => setZoom(roundZoom(Number(val)))}
               />
               <Typography sx={{ fontSize: "10px" }}>
                 Slide to zoom in or out
