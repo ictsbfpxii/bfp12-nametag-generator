@@ -240,6 +240,22 @@ function Form() {
   };
 
   const handleClear = () => {
+    const fields = [
+      "accountNumber",
+      "rank",
+      "firstName",
+      "lastName",
+      "middleInitial",
+      "nickname",
+      "office",
+      "sectionDivision",
+      "stationProvinceAddress",
+    ];
+
+    fields.forEach((field) => {
+      localStorage.removeItem(`draft_${field}`);
+    });
+
     dispatch({ type: "CLEAR_FORM" });
   };
 

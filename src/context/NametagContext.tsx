@@ -1,21 +1,28 @@
-import { createContext, useContext, useReducer, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  type ReactNode,
+} from "react";
 
 import type { ContextProps } from "../types/Types";
 
 import { type State, type Action } from "../types/Types";
+import { getSavedValue } from "../data/helpers";
 
 const initialState: State = {
   selectedPhoto: null,
   preview: null,
-  accountNumber: "",
-  rank: "",
-  firstName: "",
-  lastName: "",
-  middleInitial: "",
-  nickname: "",
-  office: "",
-  sectionDivision: "",
-  stationProvinceAddress: "",
+  accountNumber: getSavedValue("accountNumber", ""),
+  rank: getSavedValue("rank", ""),
+  firstName: getSavedValue("firstName", ""),
+  lastName: getSavedValue("lastName", ""),
+  middleInitial: getSavedValue("middleInitial", ""),
+  nickname: getSavedValue("nickname", ""),
+  office: getSavedValue("office", ""),
+  sectionDivision: getSavedValue("sectionDivision", ""),
+  stationProvinceAddress: getSavedValue("stationProvinceAddress", ""),
   photo: null,
   isEditingPhoto: false,
   savedNametag: null,
@@ -62,7 +69,32 @@ function reducer(state: State, action: Action) {
     case "SET_PHOTO":
       return { ...state, photo: action.payload };
     case "CLEAR_FORM":
-      return { ...state, ...initialState };
+      return {
+        ...state,
+        accountNumber: "",
+        rank: "",
+        firstName: "",
+        lastName: "",
+        middleInitial: "",
+        nickname: "",
+        office: "",
+        sectionDivision: "",
+        stationProvinceAddress: "",
+        photo: null,
+        isEditingPhoto: false,
+        savedNametag: null,
+        isSaving: false,
+        hasSaved: false,
+        hasSubmitted: false,
+        isProcessing: false,
+        isDownloading: false,
+        isBackgroundRemoved: false,
+        openAlert: false,
+        alertMessage: null,
+        preview: null,
+        selectedPhoto: null,
+        photoPreview: null,
+      };
     case "EDIT_PHOTO":
       return { ...state, isEditingPhoto: true };
     case "TURN_OFF_EDIT_PHOTO":
@@ -105,6 +137,37 @@ function reducer(state: State, action: Action) {
 
 export function NametagProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const fields = [
+      "accountNumber",
+      "rank",
+      "firstName",
+      "lastName",
+      "middleInitial",
+      "nickname",
+      "office",
+      "sectionDivision",
+      "stationProvinceAddress",
+    ];
+
+    fields.forEach((field) => {
+      const value = state[field as keyof State];
+      if (typeof value === "string") {
+        localStorage.setItem(`draft_${field}`, value);
+      }
+    });
+  }, [
+    state.accountNumber,
+    state.rank,
+    state.firstName,
+    state.lastName,
+    state.middleInitial,
+    state.nickname,
+    state.office,
+    state.sectionDivision,
+    state.stationProvinceAddress,
+  ]);
 
   return (
     <NametagContext value={{ state, dispatch }}>{children}</NametagContext>
