@@ -38,6 +38,7 @@ function Preview() {
       if (!element) return;
 
       try {
+        await document.fonts.ready;
         const dataUrl = await domtoimage.toPng(element, {
           quality: 1,
           bgcolor: "white",
@@ -53,7 +54,7 @@ function Preview() {
         });
 
         const link = document.createElement("a");
-        link.download = `${fullName}-Nametag-${savedNametag?.office || "BFP"}.png`;
+        link.download = `${lastName}, ${firstName[0] + middleInitial} (${rank}).png`;
         link.href = dataUrl;
         link.click();
       } catch (error) {
@@ -131,13 +132,21 @@ function Preview() {
                 >
                   <img src="dilg.png" width="52px" />
                 </Box>
-                <Box width="72%" height="100%" textAlign="center" padding={0.5}>
+                <Box
+                  width="72%"
+                  height="100%"
+                  textAlign="center"
+                  padding={0.5}
+                  sx={{
+                    fontFamily: "'Roboto', sans-serif",
+                    fontWeight: 700,
+                    color: "black",
+                  }}
+                >
                   <Typography
                     sx={{
                       fontSize: "10.44px",
-
                       fontWeight: 700,
-                      color: "black",
                       textAlign: "center",
                       WebkitTextStroke: "2px white",
                       paintOrder: "stroke fill",
@@ -149,8 +158,7 @@ function Preview() {
                   <Typography
                     sx={{
                       fontSize: "10.44px",
-                      fontWeight: 750,
-                      color: "black",
+                      fontWeight: 700,
                       textAlign: "center",
                       WebkitTextStroke: "2px white",
                       paintOrder: "stroke fill",
@@ -176,6 +184,7 @@ function Preview() {
                   >
                     <Typography
                       sx={{
+                        fontFamily: "'Roboto Condensed', sans-serif",
                         fontSize: "10px",
                         fontWeight: 750,
                         color: "black",
@@ -188,7 +197,9 @@ function Preview() {
                       }}
                       lineHeight={1}
                     >
-                      {toTitleCase(savedNametag?.stationProvinceAddress || "")}
+                      {/* {toTitleCase(savedNametag?.stationProvinceAddress || "")} */}
+                      Prime Regional Center, Brgy. Carpenter Hill, Koronadal
+                      City
                     </Typography>
                   </Box>
                 </Box>
@@ -226,6 +237,7 @@ function Preview() {
                     width: "98%",
                     textAlign: "center",
                     fontSize: "17.5px",
+                    fontFamily: "'Roboto Condensed', sans-serif",
                     letterSpacing: "0.7px",
                     transform: "scaleX(0.95)",
                     transformOrigin: "center",
@@ -296,14 +308,14 @@ function Preview() {
                       <Typography
                         style={{
                           textAlign: "center",
-                          fontFamily: "Roboto",
+                          fontFamily: "'Roboto', sans-serif",
                           fontWeight: 900,
                           fontSize: "17px",
                           marginTop: "2px",
                           letterSpacing: "3px",
                           transform: "scaleX(0.90)",
+                          WebkitTextStroke: "0.8px black",
                         }}
-                        className="arial-narrow-black-alt extra-bold font-roboto"
                       >
                         {/* {savedNametag?.accountNumber.toLocaleUpperCase()} */}
                         P24161
@@ -389,20 +401,20 @@ function Preview() {
                   }}
                 >
                   <Typography
-                    className="font-roboto-condensed arial-narrow-black-alt extra-bold "
                     sx={{
                       position: "absolute",
+                      fontFamily: "'Roboto Condensed', sans-serif",
                       fontWeight: 900,
                       fontSize: "65px",
                       top: "-15px",
                       letterSpacing: "0px",
-                      transform: "scaleX(0.7)",
+                      transform: "scaleX(0.8)",
                       transformOrigin: "center",
                       WebkitTextStroke: "2px black",
                       color: "black",
                     }}
                   >
-                    {savedNametag?.nickname.toLocaleUpperCase() || "NICKNAME"}
+                    {savedNametag?.nickname.toLocaleUpperCase() || "JAY"}
                   </Typography>
                 </Box>
                 <Box
@@ -417,16 +429,17 @@ function Preview() {
                   }}
                 >
                   <Typography
-                    className="font-roboto-condensed"
                     sx={{
                       fontWeight: 700,
+                      fontFamily: "'Roboto Condensed', sans-serif",
                       fontSize: "17.8px",
                       letterSpacing: "0px",
                       transform: "scaleX(0.95)",
                       transformOrigin: "center",
                     }}
                   >
-                    {isOfficer ? fullName.toLocaleUpperCase() : fullName}
+                    {/* {isOfficer ? fullName.toLocaleUpperCase() : fullName} */}
+                    FO1 Jay E Presga
                   </Typography>
                 </Box>
                 <img
@@ -456,9 +469,9 @@ function Preview() {
                     width: "100%",
                     height: "100%",
                     textAlign: "center",
-                    fontFamily: "Roboto",
+                    fontFamily: "Roboto, sans serif",
                     fontSize: "15px",
-                    letterSpacing: "1.4px",
+                    letterSpacing: "1.5px",
                     paddingX: "8px",
                     WebkitTextStroke: "1.2px white",
                     color: "white",
@@ -466,7 +479,7 @@ function Preview() {
                 >
                   {/* FIRE SAFETY ENFORCEMENT SECTION */}
                   {savedNametag?.sectionDivision.toLocaleUpperCase() ||
-                    "NO SECTION/DIVISION"}
+                    "FIRE SAFETY ENFORCEMENT SECTION"}
                 </Box>
               </Box>
             </Stack>

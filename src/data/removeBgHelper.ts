@@ -1,6 +1,6 @@
 // removeBgHelper.ts
 
-const API_KEY = "sarrPXcS4zDakkhUmKyxoHJN"; // 🔴 REPLACE THIS WITH YOUR KEY
+const API_KEY = "sarrPXcS4zDakkhUmKyxoHJN";
 
 export async function removeBackgroundApi(imageBlob: Blob): Promise<string> {
   const formData = new FormData();

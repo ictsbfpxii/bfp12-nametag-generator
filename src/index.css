@@ -4,18 +4,19 @@ hr {
   color: white;
 }
 
-.extra-bold {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 900;
-  color: black; /* or your text color */
+/* src/index.css */
 
-  /* The Magic Line: adds a 1px stroke around the letters */
-  -webkit-text-stroke: 0.8px black;
-
-  /* Optional: Paint order ensures the stroke doesn't eat the inside of the letters too much */
-  paint-order: stroke fill;
+/* --- ROBOTO FAMILY --- */
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
 }
-
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+}
 @font-face {
   font-family: "Roboto";
   src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
@@ -23,32 +24,65 @@ hr {
 }
 @font-face {
   font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
   src: url("./assets/fonts/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
 }
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+}
 
-/* --- ROBOTO CONDENSED --- */
+/* --- ROBOTO CONDENSED FAMILY --- */
 @font-face {
   font-family: "Roboto Condensed";
-  src: url("./assets/fonts/RobotoCondensed-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Roboto_Condensed-Thin.ttf") format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/Roboto_Condensed-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/Roboto_Condensed-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 @font-face {
   font-family: "Roboto Condensed";
-  src: url("./assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
+  src: url("./assets/fonts/Roboto_Condensed-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/Roboto_Condensed-Bold.ttf") format("truetype");
   font-weight: 700;
 }
-
-/* Utility classes for your components */
-.font-roboto {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/Roboto_Condensed-Black.ttf") format("truetype");
+  font-weight: 900;
 }
 
-.font-roboto-condensed {
-  font-family: "Roboto Condensed", sans-serif;
+/* --- ROBOTO SEMI CONDENSED FAMILY --- */
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  src: url("./assets/fonts/Roboto_SemiCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
 }
-
-#nametag-to-print {
-  font-family: "Roboto Condensed", sans-serif !important;
-  font-family: "Roboto", sans-serif !important;
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  src: url("./assets/fonts/Roboto_SemiCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  src: url("./assets/fonts/Roboto_SemiCondensed-Black.ttf") format("truetype");
+  font-weight: 900;
 }
