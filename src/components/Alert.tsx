@@ -8,6 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import { type AlertProps } from "../types/Types";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -17,13 +18,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
-
-interface AlertProps {
-  children: React.ReactNode;
-  modalTitle: string | null;
-  onCloseAlert: () => void;
-  openAlert: boolean;
-}
 
 function Alert({ children, modalTitle, onCloseAlert, openAlert }: AlertProps) {
   return (

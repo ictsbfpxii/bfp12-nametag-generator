@@ -29,7 +29,8 @@ function Preview() {
 
   const fullName = savedNametag
     ? `${rank} ${firstName} ${middleInitial} ${lastName}`
-    : "No Name";
+    : "ENTER NAME";
+
   const handleDownload = async () => {
     dispatch({ type: "DOWNLOAD_NAMETAG" });
     setTimeout(async () => {
@@ -197,7 +198,11 @@ function Preview() {
                       }}
                       lineHeight={1}
                     >
-                      {toTitleCase(savedNametag?.stationProvinceAddress || "")}
+                      {savedNametag
+                        ? toTitleCase(
+                            savedNametag?.stationProvinceAddress || "",
+                          )
+                        : "Enter Station or Provincial Office Address"}
                     </Typography>
                   </Box>
                 </Box>
@@ -243,7 +248,8 @@ function Preview() {
                     color: "black",
                   }}
                 >
-                  {savedNametag?.office.toLocaleUpperCase() || "NO OFFICE NAME"}
+                  {savedNametag?.office.toLocaleUpperCase() ||
+                    "ENTER OFFICE OR STATION"}
                 </Box>
               </Box>
               <Stack
@@ -411,7 +417,7 @@ function Preview() {
                       color: "black",
                     }}
                   >
-                    {savedNametag?.nickname.toLocaleUpperCase() || "JAY"}
+                    {savedNametag?.nickname.toLocaleUpperCase() || "NICKNAME"}
                   </Typography>
                 </Box>
                 <Box
@@ -474,7 +480,7 @@ function Preview() {
                   }}
                 >
                   {savedNametag?.sectionDivision.toLocaleUpperCase() ||
-                    "FIRE SAFETY ENFORCEMENT SECTION"}
+                    "ENTER MAIN SECTION"}
                 </Box>
               </Box>
             </Stack>

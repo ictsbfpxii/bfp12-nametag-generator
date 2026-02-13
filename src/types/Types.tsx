@@ -20,6 +20,13 @@ export interface NametagInfo {
   photo: string | null;
 }
 
+export interface AlertProps {
+  children: React.ReactNode;
+  modalTitle: string | null;
+  onCloseAlert: () => void;
+  openAlert: boolean;
+}
+
 export interface AlertMessage {
   title: string;
   message: string;
