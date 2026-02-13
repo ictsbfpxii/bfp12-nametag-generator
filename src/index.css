@@ -4,13 +4,6 @@ hr {
   color: white;
 }
 
-.arial-narrow-black-alt {
-  font-family: "Roboto Condensed", sans-serif;
-  font-style: normal;
-  /* Optional: Tighten letter spacing slightly to match Arial Narrow's density */
-  letter-spacing: -0.5px;
-}
-
 .extra-bold {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 900;
@@ -21,4 +14,41 @@ hr {
 
   /* Optional: Paint order ensures the stroke doesn't eat the inside of the letters too much */
   paint-order: stroke fill;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/* --- ROBOTO CONDENSED --- */
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/RobotoCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/* Utility classes for your components */
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-roboto-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#nametag-to-print {
+  font-family: "Roboto Condensed", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
 }

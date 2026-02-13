@@ -78,7 +78,6 @@ function Preview() {
           borderTopRightRadius: "10px",
           color: "white",
           alignContent: "center",
-          fontFamily: "Roboto",
           fontWeight: "700",
           textAlign: "center",
         }}
@@ -136,7 +135,7 @@ function Preview() {
                   <Typography
                     sx={{
                       fontSize: "10.44px",
-                      fontFamily: "Roboto",
+
                       fontWeight: 700,
                       color: "black",
                       textAlign: "center",
@@ -150,7 +149,6 @@ function Preview() {
                   <Typography
                     sx={{
                       fontSize: "10.44px",
-                      fontFamily: "Roboto",
                       fontWeight: 750,
                       color: "black",
                       textAlign: "center",
@@ -179,7 +177,6 @@ function Preview() {
                     <Typography
                       sx={{
                         fontSize: "10px",
-                        fontFamily: "Roboto Condensed",
                         fontWeight: 750,
                         color: "black",
                         textAlign: "center",
@@ -209,12 +206,12 @@ function Preview() {
               </Stack>
               <Box
                 display="flex"
+                className="font-roboto-condensed"
                 sx={{
                   width: "100%",
                   height: "43px",
                   backgroundColor: "#f2f2ea",
                   color: "black",
-                  fontFamily: "Roboto Condensed",
                   fontWeight: 900,
                 }}
                 alignItems="center"
@@ -306,10 +303,10 @@ function Preview() {
                           letterSpacing: "3px",
                           transform: "scaleX(0.90)",
                         }}
-                        className="arial-narrow-black-alt extra-bold"
+                        className="arial-narrow-black-alt extra-bold font-roboto"
                       >
-                        {savedNametag?.accountNumber.toLocaleUpperCase()}
-                        {/* P24161 */}
+                        {/* {savedNametag?.accountNumber.toLocaleUpperCase()} */}
+                        P24161
                       </Typography>
                     </Box>
                   </Stack>
@@ -392,16 +389,17 @@ function Preview() {
                   }}
                 >
                   <Typography
-                    className="arial-narrow-black-alt extra-bold"
+                    className="font-roboto-condensed arial-narrow-black-alt extra-bold "
                     sx={{
                       position: "absolute",
-                      fontFamily: "Roboto Condensed",
                       fontWeight: 900,
                       fontSize: "65px",
                       top: "-15px",
                       letterSpacing: "0px",
-                      transform: "scaleX(0.82)",
+                      transform: "scaleX(0.7)",
                       transformOrigin: "center",
+                      WebkitTextStroke: "2px black",
+                      color: "black",
                     }}
                   >
                     {savedNametag?.nickname.toLocaleUpperCase() || "NICKNAME"}
@@ -419,8 +417,8 @@ function Preview() {
                   }}
                 >
                   <Typography
+                    className="font-roboto-condensed"
                     sx={{
-                      fontFamily: "Roboto Condensed",
                       fontWeight: 700,
                       fontSize: "17.8px",
                       letterSpacing: "0px",
@@ -458,6 +456,7 @@ function Preview() {
                     width: "100%",
                     height: "100%",
                     textAlign: "center",
+                    fontFamily: "Roboto",
                     fontSize: "15px",
                     letterSpacing: "1.4px",
                     paddingX: "8px",
