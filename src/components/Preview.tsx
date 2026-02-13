@@ -197,9 +197,7 @@ function Preview() {
                       }}
                       lineHeight={1}
                     >
-                      {/* {toTitleCase(savedNametag?.stationProvinceAddress || "")} */}
-                      Prime Regional Center, Brgy. Carpenter Hill, Koronadal
-                      City
+                      {toTitleCase(savedNametag?.stationProvinceAddress || "")}
                     </Typography>
                   </Box>
                 </Box>
@@ -317,8 +315,7 @@ function Preview() {
                           WebkitTextStroke: "0.8px black",
                         }}
                       >
-                        {/* {savedNametag?.accountNumber.toLocaleUpperCase()} */}
-                        P24161
+                        {savedNametag?.accountNumber.toLocaleUpperCase()}
                       </Typography>
                     </Box>
                   </Stack>
@@ -438,8 +435,7 @@ function Preview() {
                       transformOrigin: "center",
                     }}
                   >
-                    {/* {isOfficer ? fullName.toLocaleUpperCase() : fullName} */}
-                    FO1 Jay E Presga
+                    {isOfficer ? fullName.toLocaleUpperCase() : fullName}
                   </Typography>
                 </Box>
                 <img
@@ -477,7 +473,6 @@ function Preview() {
                     color: "white",
                   }}
                 >
-                  {/* FIRE SAFETY ENFORCEMENT SECTION */}
                   {savedNametag?.sectionDivision.toLocaleUpperCase() ||
                     "FIRE SAFETY ENFORCEMENT SECTION"}
                 </Box>
