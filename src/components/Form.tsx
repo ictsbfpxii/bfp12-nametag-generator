@@ -302,7 +302,7 @@ function Form() {
               helperText={
                 hasSubmitted && accountNumber === ""
                   ? "Required"
-                  : "Minumum of 6 characters"
+                  : "Minimum of 6 characters"
               }
               fullWidth
               onChange={(e) =>
